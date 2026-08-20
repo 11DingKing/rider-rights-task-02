@@ -63,9 +63,6 @@ var transitionTable = map[ItemStatus][]ItemStatus{
 }
 
 func CanTransition(from, to ItemStatus) bool {
-	if from == StatusCompleted || from == StatusCancelled {
-		return to == StatusInProgress
-	}
 	allowed, ok := transitionTable[from]
 	if !ok {
 		return false
